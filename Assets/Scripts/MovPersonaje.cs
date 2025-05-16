@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MovPersonaje : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class MovPersonaje : MonoBehaviour
     public float velocidMovimiento = 10.0f;
     public float velocidRotacion = 200.0f;
 
-   public bool corriendo;
+    public bool MiraPers = CamaraSigue.lookAtPlayer;
+    public bool corriendo;
+
+    
 
     public float x, y;
     void Start()
@@ -23,19 +27,32 @@ public class MovPersonaje : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
-        transform.Rotate(0, x * Time.deltaTime * velocidRotacion,0);
-        transform.Translate(0,0, y * Time.deltaTime * velocidMovimiento);
+        transform.Rotate(0, x * Time.deltaTime * velocidRotacion, 0);
+        transform.Translate(0, 0, y * Time.deltaTime * velocidMovimiento);
 
         anim.SetFloat("VelX", x);
         anim.SetFloat("VelY", y);
 
         corriendo = Input.GetKey(KeyCode.LeftShift);
 
-        if(corriendo == true){
+        if (corriendo == true)
+        {
             velocidMovimiento = 100.0f;
-            
-        }else{
+
+        }
+        else
+        {
             velocidMovimiento = 10.0f;
+        }
+    }
+
+    void CorreDte()
+    {
+        if (MiraPers == false)
+        {
+          
+
+
         }
     }
 }

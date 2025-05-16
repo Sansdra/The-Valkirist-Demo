@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CamaraSigue : MonoBehaviour {
@@ -13,7 +14,9 @@ public class CamaraSigue : MonoBehaviour {
 	public bool rotacionActive;
     public float velRotacion = 5.0f;
 
-	public bool lookAtPlayer = false;
+	public static bool lookAtPlayer = false;
+
+	
 
 	void Start()
 	{
