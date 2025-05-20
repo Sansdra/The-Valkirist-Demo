@@ -14,8 +14,7 @@ public class MovPersonaje : MonoBehaviour
     public bool MiraPers = CamaraSigue.lookAtPlayer;
     public bool corriendo;
 
-    GameObject camaraMira = GameObject.FindWithTag("Main Camera");
-    GameObject lookAt = GameObject.FindWithTag("LookAt");
+
 
     public float x, y;
 
@@ -23,8 +22,9 @@ public class MovPersonaje : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        GameObject camaraMira = GameObject.FindWithTag("MainCamera");
+        GameObject lookAt = GameObject.FindWithTag("LookAt");
 
-        
     }
 
     // Update is called once per frame
@@ -50,14 +50,10 @@ public class MovPersonaje : MonoBehaviour
         {
             velocidMovimiento = 10.0f;
         }
-       if (Input.GetAxis("Horizontal") == 0)
+        if (Input.GetAxis("Horizontal") == 0)
         {
-            camaraMira.transform.position = lookAt.transform.position;
+            
         }
     }
 
-    void CorreDte()
-    {
-        
-    }
 }

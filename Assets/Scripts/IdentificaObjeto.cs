@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,16 +9,18 @@ public class IdentificaObjeto : MonoBehaviour
 {
   Camera cam;
 
+  GameObject erin;
   public float rayDistance = 100;
 
   public float asd = 0.5f;
   public float qwe = 0.5f;
-  
 
-public LayerMask layerMask;
+
+  public LayerMask Objeto;
   void Start()
   {
     cam = Camera.main;
+    GameObject erin = GameObject.FindWithTag("Player");
   }
 
 
@@ -27,11 +30,14 @@ public LayerMask layerMask;
     RaycastHit hit;
 
 
-    if (Physics.Raycast(ray, out hit, rayDistance))
+    if (Physics.Raycast(ray, out hit, rayDistance, Objeto))
     {
       Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.magenta);
       Debug.Log("Hay un Objeto"); Debug.Log(hit.collider.name);
-      
+      if (hit.collider.tag == "Mesa")
+      {
+        Debug.Log("Mi querida mesa, cuantas horas dibujando...");
+      }
     }
     else
     {
