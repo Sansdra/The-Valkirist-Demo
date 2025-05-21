@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: 939b01ae33487a34585cd9aff6817723
+  - enabled: 1
+    path: Assets/Scenes/Etherus.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Habitacion.unity
+    guid: 0510756e4b30cb14daa3afb42283157f
+  - enabled: 1
+    path: Assets/Scenes/Opciones.unity
+    guid: f68c8f4d906719f43a928c6b3dd2d861
+  - enabled: 1
+    path: Assets/Scenes/Controles.unity
+    guid: baee4af4728ed25428c038cbfa309636
   m_configObjects: {}
