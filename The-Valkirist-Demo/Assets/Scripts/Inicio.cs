@@ -1,39 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InicioScript : MonoBehaviour
 {
+    [Header("Referencias UI")]
+    [SerializeField] private GameObject panelSettings;
 
-    GameObject panelSettings;
+    [Header("Animación de inicio")]
+    [SerializeField] private float tiempoEsperaAnimacion = 0.65f;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        panelSettings = GameObject.Find("PanelSettings");
-        panelSettings.SetActive(true);
-        
-    }
+        if (panelSettings == null)
+        {
+            panelSettings = GameObject.Find("PanelSettings");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        panelSettings?.SetActive(true); // Activa el panel si se encontró
     }
 
     public void StartGame()
     {
-      StartCoroutine(waitAnimation());
-       
+        StartCoroutine(WaitAnimationThenStart());
     }
+
     public void Options()
     {
         SceneManager.LoadScene("Opciones");
     }
+
     public void Controls()
     {
         SceneManager.LoadScene("Controles");
@@ -41,34 +37,34 @@ public class InicioScript : MonoBehaviour
 
     public void ExitGame()
     {
-#if !UNITY_EDITOR
-            Application.Quit();
-#else
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
 #endif
     }
 
     public void MostrarSettings()
     {
-
-        panelSettings.SetActive(true);
+        panelSettings?.SetActive(true);
     }
 
     public void OcultarSettings()
     {
-        panelSettings.SetActive(false);
+        panelSettings?.SetActive(false);
     }
 
     public void SuenaBoton()
     {
-
+        // Aquí puedes agregar código para reproducir sonido del botón
+        // Por ejemplo: AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 
-    public IEnumerator waitAnimation()
+    private IEnumerator WaitAnimationThenStart()
     {
-        Debug.Log("Esperando...");
-        yield return new WaitForSeconds(0.6f);
-        Debug.Log("Ya está");
-         SceneManager.LoadScene("Etherus");  
+        Debug.Log("Esperando animación de inicio...");
+        yield return new WaitForSeconds(tiempoEsperaAnimacion);
+        Debug.Log("Animación terminada. Cargando escena...");
+        SceneManager.LoadScene("Etherus");
     }
 }

@@ -1,96 +1,75 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class IdentificaObjeto : MonoBehaviour
 {
-  private Camera cam;
+    public float rayDistance = 100f;
+    public LayerMask objetoLayer;
+    public Text textoInteraccion;
 
-  GameObject erin;
-  public float rayDistance = 100;
+    private Camera cam;
+    private GameObject erin;
+    private IInteractuable objetoActual;
 
-  public float asd = 0.5f;
-  public float qwe = 0.5f;
-
-
-  public LayerMask Objeto;
-  void Start()
-  {
-
-
-    cam = GetComponent<Camera>();
-    if (cam == null)
+    void Start()
     {
-        cam = Camera.main;
+        cam = GetComponent<Camera>();
         if (cam == null)
         {
-            Debug.LogError("No se pudo encontrar la cámara");
-            enabled = false;
-            return;
+            cam = Camera.main;
+            if (cam == null)
+            {
+                Debug.LogError("No se pudo encontrar la cámara.");
+                enabled = false;
+                return;
+            }
+        }
+
+        erin = GameObject.FindWithTag("Player");
+        if (erin == null)
+        {
+            Debug.LogWarning("No se encontró al jugador con tag 'Player'");
+        }
+
+        if (textoInteraccion != null)
+            textoInteraccion.enabled = false;
+    }
+
+    void Update()
+    {
+        DetectarObjeto();
+
+        if (objetoActual != null && Input.GetKeyDown(KeyCode.E))
+        {
+            objetoActual.Interactuar();
         }
     }
 
+    void DetectarObjeto()
+    {
+        objetoActual = null;
+        if (textoInteraccion != null) textoInteraccion.enabled = false;
 
-    GameObject erin = GameObject.FindWithTag("Player");
-  }
-
-
-  void Update()
-  {
-
-    if (cam == null) return;
-
-    Ray ray = cam.ScreenPointToRay(new Vector3(cam.pixelWidth/ 2f, cam.pixelHeight / 2f, 0f));
+        Ray ray = cam.ScreenPointToRay(new Vector3(cam.pixelWidth / 2f, cam.pixelHeight / 2f));
         RaycastHit hit;
 
-        // Dibuja siempre el rayo para depuración, independientemente de si golpea o no
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.magenta, 0.1f); // Duración corta para no saturar
+        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.magenta, 0.1f);
 
-        bool getHit = Physics.Raycast(ray, out hit, rayDistance, Objeto);
-
-        if (getHit)
+        if (Physics.Raycast(ray, out hit, rayDistance, objetoLayer))
         {
-            Debug.Log("Hay un Objeto: " + hit.collider.name);
-            if (hit.collider.CompareTag("Mesa")) // Es más eficiente usar CompareTag que == para tags
+            GameObject objetoDetectado = hit.collider.gameObject;
+            Debug.Log("Objeto detectado: " + objetoDetectado.name);
+
+            IInteractuable interactuable = objetoDetectado.GetComponent<IInteractuable>();
+            if (interactuable != null)
             {
-                Debug.Log("Mi querida mesa, cuantas horas dibujando...");
-                // Aquí podrías hacer algo con hit.collider.gameObject si lo necesitas
+                objetoActual = interactuable;
+                if (textoInteraccion != null)
+                {
+                    textoInteraccion.text = objetoActual.MensajeInteractuar();
+                    textoInteraccion.enabled = true;
+                }
             }
         }
-        else
-        {
-            // Opcional: Si quieres un color diferente cuando no golpea nada
-            // Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.white, 0.1f);
-            // Debug.Log("No se detectó ningún objeto en la LayerMask especificada.");
-        }
-    /*
-        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
-        RaycastHit hit;
-
-        bool getHit = Physics.Raycast(ray, out hit, rayDistance, Objeto);
-        Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
-
-
-        if (getHit)
-        {
-
-          Debug.Log("Hay un Objeto"); Debug.Log(hit.collider.name);
-          if (hit.collider.tag == "Mesa")
-          {
-            Debug.Log("Mi querida mesa, cuantas horas dibujando...");
-          }
-        }
-        else
-        {
-          Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.white);
-
-        }
-        */
-    
-
-
-  }
+    }
 }
