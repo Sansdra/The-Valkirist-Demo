@@ -9,8 +9,8 @@ public class RadialMenuController : MonoBehaviour
     public float rotationSpeed = 5f;
 
     [Header("Escala de selección")]
-    public float scaleSelected = 1.4f;
-    public float scaleNormal = 0.9f;
+    public float scaleSelected = 1.6f;
+    public float scaleNormal = 0.8f;
 
     [Header("Icono central")]
     public RectTransform centerIcon;
@@ -22,6 +22,14 @@ public class RadialMenuController : MonoBehaviour
 
     private float bounceTimer = 0f;
     private bool bouncing = false;
+
+    private Vector3 originalCenterScale;
+
+    void Start()
+    {
+        if (centerIcon != null)
+            originalCenterScale = centerIcon.localScale;
+    }
 
     void Update()
     {
@@ -64,8 +72,8 @@ public class RadialMenuController : MonoBehaviour
     {
         for (int i = 0; i < options.Length; i++)
         {
-            float scale = (i == targetIndex) ? scaleSelected : scaleNormal;
-            options[i].localScale = Vector3.Lerp(options[i].localScale, Vector3.one * scale, Time.deltaTime * 10f);
+            float targetScale = (i == targetIndex) ? scaleSelected : scaleNormal;
+            options[i].localScale = Vector3.Lerp(options[i].localScale, Vector3.one * targetScale, Time.deltaTime * 10f);
 
             Image img = options[i].GetComponent<Image>();
             if (img != null)
@@ -90,11 +98,11 @@ public class RadialMenuController : MonoBehaviour
         {
             bounceTimer += Time.deltaTime * bounceSpeed;
             float scale = 1f + Mathf.Sin(bounceTimer * Mathf.PI) * (bounceScale - 1f);
-            centerIcon.localScale = new Vector3(scale, scale, 1f);
+            centerIcon.localScale = originalCenterScale * scale;
 
             if (bounceTimer >= 1f)
             {
-                centerIcon.localScale = Vector3.one;
+                centerIcon.localScale = originalCenterScale;
                 bouncing = false;
             }
         }
