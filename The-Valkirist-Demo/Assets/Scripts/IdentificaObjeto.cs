@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class IdentificaObjeto : MonoBehaviour
 {
-    public float rayDistance = 100f;
+    public float rayDistance = 35f;
     public LayerMask objetoLayer;
     public Text textoInteraccion;
 
