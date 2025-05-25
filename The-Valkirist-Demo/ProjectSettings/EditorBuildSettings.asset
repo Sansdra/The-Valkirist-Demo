@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio.unity
     guid: 939b01ae33487a34585cd9aff6817723
   - enabled: 1
-    path: Assets/Scenes/Etherus.unity
+    path: Assets/Scenes/Habitacion.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Habitacion.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PaneldeOpcioens/ControlMenu.unity
     guid: 643e3e635c8d9f74ab3a99099692b647
+  - enabled: 1
+    path: Assets/Scenes/Pasillo.unity
+    guid: 9de0eceab1769364e9f5501e6ce70262
   m_configObjects: {}

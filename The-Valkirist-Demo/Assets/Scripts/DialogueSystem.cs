@@ -107,4 +107,20 @@ public class DialogueSystem : MonoBehaviour
         nameText.text = "";
         characterImage.sprite = null;
     }
+    public bool IsDialogoActivo()
+{
+    return dialoguePanel.activeSelf && (dialogueQueue.Count > 0 || typingCoroutine != null || waitingToClose);
+}
+
+public void ForzarCierre()
+{
+    if (typingCoroutine != null)
+    {
+        StopCoroutine(typingCoroutine);
+        typingCoroutine = null;
+    }
+
+    EndDialogue();
+}
+
 }
