@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/GameController.cs.meta
+guid: 3e705ec80a43bb04485c53cf5359a59e
+========
+guid: 3f2e18c4d78cf5e4eb7af54ecc792e11
+>>>>>>>> a12df8ee4eeed5b55ea570609d3bc450cd96d8dc:Assets/Scripts/CamaraSigue.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
