@@ -1,30 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<<< HEAD:Assets/Scripts/GameController.cs
 public class GameController : MonoBehaviour
-========
-public class DontDestroyOnLoad : MonoBehaviour
->>>>>>>> 72168df012b730fc6774fc99e1ee197d41545ba6:The-Valkirist-Demo/Assets/Scripts/DontDestroyOnLoad.cs
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameController Instance;
+
+    [Header("Audio")]
+    public AudioSource music;
+
+    private float startTime;
+    private bool songStarted = false;
+
+    public float SongTime => Time.time - startTime;
+
+    void Awake()
     {
-<<<<<<<< HEAD:Assets/Scripts/GameController.cs
-    
-========
-
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
->>>>>>>> 72168df012b730fc6774fc99e1ee197d41545ba6:The-Valkirist-Demo/Assets/Scripts/DontDestroyOnLoad.cs
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        StartSong();
+    }
+
+    void StartSong()
+    {
+        startTime = Time.time;
+        songStarted = true;
+
+        if (music != null)
+        {
+            music.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No se ha asignado el AudioSource en GameController.");
+        }
+    }
+
     void Update()
     {
+        if (songStarted && !music.isPlaying && Time.time - startTime > 1f)
+        {
+            EndSong();
+        }
+    }
 
+    void EndSong()
+    {
+        Debug.Log("La canción ha terminado.");
+        // Aquí puedes mostrar una pantalla de resultados, reiniciar el nivel, etc.
     }
 }
