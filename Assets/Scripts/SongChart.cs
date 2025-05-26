@@ -5,22 +5,23 @@ using System.IO;
 public class SongChart : MonoBehaviour
 {
     [Header("Audio")]
-    public AudioSource music; // El AudioSource que reproduce la canción
+    public AudioSource music;
 
     [Header("Notas")]
-    public Transform[] spawnPositions; // Posiciones de spawn (4)
-    public GameObject[] notePrefabs;   // Prefabs de nota (4), uno por carril
+    public Transform[] spawnPositions;
+    public GameObject[] notePrefabs;
 
     [Header("Archivo de Notas")]
-    public string songName = "default_song"; // Asignalo desde el Inspector
+    public string songName = "default_song";
 
     [Header("Referencia a InputManager")]
     public InputManager inputManager;
 
     private SongData songData;
     private float songStartTime;
-
     private int nextNoteIndex = 0;
+
+    private List<NoteObject> activeNotes = new List<NoteObject>();
 
     private string JsonPath => $"Assets/Charts/{songName}.json";
 
@@ -30,13 +31,9 @@ public class SongChart : MonoBehaviour
         songStartTime = Time.time;
 
         if (music != null)
-        {
             music.Play();
-        }
         else
-        {
             Debug.LogWarning("AudioSource no asignado en SongChart");
-        }
     }
 
     void Update()
@@ -45,13 +42,33 @@ public class SongChart : MonoBehaviour
             return;
 
         float elapsed = Time.time - songStartTime;
-
-        float fallTime = 2f; // Tiempo que tarda la nota en caer (distancia/velocidad)
+        float fallTime = 3.333f;
 
         while (nextNoteIndex < songData.notes.Count && songData.notes[nextNoteIndex].time - fallTime <= elapsed)
         {
             SpawnNote(songData.notes[nextNoteIndex]);
             nextNoteIndex++;
+        }
+
+        for (int i = activeNotes.Count - 1; i >= 0; i--)
+        {
+            NoteObject note = activeNotes[i];
+
+            if (note == null)
+            {
+                activeNotes.RemoveAt(i);
+                continue;
+            }
+
+            if (note.transform.position.y < 0.5f && !note.IsHittable())
+            {
+                note.OnMiss();
+
+                if (inputManager != null)
+                    inputManager.RemoveNote(note);
+
+                activeNotes.RemoveAt(i);
+            }
         }
     }
 
@@ -92,6 +109,7 @@ public class SongChart : MonoBehaviour
         }
 
         noteScript.lane = note.lane;
+        activeNotes.Add(noteScript);
 
         if (inputManager != null)
         {

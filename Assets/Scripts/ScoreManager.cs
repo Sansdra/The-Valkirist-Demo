@@ -4,26 +4,22 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    public int perfectCount = 0;
-    public int goodCount = 0;
-    public int okCount = 0;
-    public int missCount = 0;
+    private int perfectCount = 0;
+    private int goodCount = 0;
+    private int okCount = 0;
+    private int missCount = 0;
 
-    private void Awake()
+    void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); // Eliminar duplicados
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject); // Opcional: conservar entre escenas
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    public void RegisterHit(string accuracy)
+    public void RegisterHit(string judgement)
     {
-        switch (accuracy)
+        switch (judgement)
         {
             case "Perfect":
                 perfectCount++;
@@ -39,6 +35,11 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"Perfect: {perfectCount}, Good: {goodCount}, Ok: {okCount}, Miss: {missCount}");
+        Debug.Log($"Perfect: {perfectCount} / Good: {goodCount} / Ok: {okCount} / Miss: {missCount}");
+    }
+
+    public void ResetScores()
+    {
+        perfectCount = goodCount = okCount = missCount = 0;
     }
 }

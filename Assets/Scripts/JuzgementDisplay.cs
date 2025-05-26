@@ -1,56 +1,60 @@
 using UnityEngine;
-using UnityEngine.UI;  // O usar TMPro si tienes TextMeshPro
-using System.Collections;
 using TMPro;
 
 public class JudgementDisplay : MonoBehaviour
 {
-    public TMP_Text judgementText;
-  // Arrastra tu UI Text aquí desde el inspector
+    [SerializeField] private TextMeshProUGUI judgementText;
 
-    public float displayDuration = 1f;  // Tiempo que el texto se mantiene visible
-    public float fadeDuration = 0.5f;   // Tiempo del fade out
+    public float displayTime = 0.5f;
 
-    private Coroutine currentCoroutine;
+    private float timer;
 
     void Start()
     {
-        judgementText.text = "";
-        judgementText.color = new Color(judgementText.color.r, judgementText.color.g, judgementText.color.b, 0f);
+        if (judgementText != null)
+            judgementText.text = "";
     }
 
-    public void ShowJudgement(string message)
+    void Update()
     {
-        if (currentCoroutine != null)
+        if (timer > 0)
         {
-            StopCoroutine(currentCoroutine);
+            timer -= Time.deltaTime;
+            if (timer <= 0 && judgementText != null)
+            {
+                judgementText.text = "";
+            }
         }
-        currentCoroutine = StartCoroutine(ShowAndFade(message));
     }
 
-    private IEnumerator ShowAndFade(string message)
+    public void ShowJudgement(string judgement)
     {
-        // Mostrar texto al máximo alfa
-        judgementText.text = message;
-        Color color = judgementText.color;
-        color.a = 1f;
-        judgementText.color = color;
-
-        // Esperar el tiempo de display sin opacidad reducida
-        yield return new WaitForSeconds(displayDuration);
-
-        // Hacer fade out progresivo
-        float elapsed = 0f;
-        while (elapsed < fadeDuration)
+        if (judgementText == null)
         {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
-            color.a = alpha;
-            judgementText.color = color;
-            yield return null;
+            Debug.LogWarning("judgementText no asignado en JudgementDisplay");
+            return;
         }
 
-        // Finalmente dejar el texto invisible
-        judgementText.text = "";
+        judgementText.text = judgement;
+        switch (judgement)
+        {
+            case "Perfect":
+                judgementText.color = Color.yellow;
+                break;
+            case "Good":
+                judgementText.color = Color.green;
+                break;
+            case "Ok":
+                judgementText.color = Color.cyan;
+                break;
+            case "Miss":
+                judgementText.color = Color.red;
+                break;
+            default:
+                judgementText.color = Color.white;
+                break;
+        }
+
+        timer = displayTime;
     }
 }
