@@ -4,5 +4,44 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EditorScene.unity
+    guid: 94c5e1043900ad54891f47486f24e982
+  - enabled: 1
+    path: Assets/Scenes/Etherus.unity
+    guid: a081b69a867f2fd4ab6edf58e37a783f
+  - enabled: 1
+    path: Assets/Scenes/Habitacion.unity
+    guid: 3bdf28ba10ed95f44a9968716854e42d
+  - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: 939b01ae33487a34585cd9aff6817723
+  - enabled: 1
+    path: Assets/Scenes/Introduccion.unity
+    guid: 1dac96e65bdd7954eb297abe8fef233c
+  - enabled: 1
+    path: Assets/Scenes/JuegoScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/PaneldeOpcioens/Audio.unity
+    guid: 20f880cd0844ec04382068016f8b3a08
+  - enabled: 1
+    path: Assets/Scenes/PaneldeOpcioens/ControlMenu.unity
+    guid: 643e3e635c8d9f74ab3a99099692b647
+  - enabled: 1
+    path: Assets/Scenes/PaneldeOpcioens/Creditos.unity
+    guid: 213788701ccc50f40b1dec8d26c9770e
+  - enabled: 1
+    path: Assets/Scenes/PaneldeOpcioens/Opciones.unity
+    guid: f68c8f4d906719f43a928c6b3dd2d861
+  - enabled: 1
+    path: Assets/Scenes/mariano.unity
+    guid: 239abe706a88bae19a170dbe4e350a6a
+  - enabled: 1
+    path: Assets/Scenes/Pasillo.unity
+    guid: 9de0eceab1769364e9f5501e6ce70262
+  - enabled: 1
+    path: Assets/Scenes/Sonido.unity
+    guid: 6f0c1785e90bd9644b3ebfd308720697
   m_configObjects: {}
