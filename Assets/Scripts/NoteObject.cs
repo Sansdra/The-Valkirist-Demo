@@ -4,36 +4,13 @@ using System.Collections.Generic;
 public class NoteObject : MonoBehaviour
 {
     public int lane;
-    public float duration = 0f; // duración de la nota (0 = normal)
-
-    public Transform holdBar; // visual para nota sostenida (opcional)
 
     private HashSet<string> currentZones = new HashSet<string>();
-    public bool hit = false; // indica si la nota ya fue golpeada
+    private bool wasHit = false;
 
-    private float spawnTime;
-    private float holdStartTime;
-    private bool isBeingHeld = false;
-
-    public float holdTimer => isBeingHeld ? Time.time - holdStartTime : 0f;
-
-    void Start()
+    public bool IsHittable()
     {
-        spawnTime = Time.time;
-
-        if (duration > 0f && holdBar != null)
-        {
-            float speed = 12f; // Ajusta a la velocidad real del juego
-            float holdLength = duration * speed;
-
-            holdBar.localScale = new Vector3(1f, holdLength, 1f);
-            holdBar.localPosition = new Vector3(0f, -holdLength / 2f, 0f);
-            holdBar.gameObject.SetActive(true);
-        }
-        else if (holdBar != null)
-        {
-            holdBar.gameObject.SetActive(false);
-        }
+        return currentZones.Count > 0;
     }
 
     public void RegisterZone(string zoneName)
@@ -56,29 +33,35 @@ public class NoteObject : MonoBehaviour
 
     public void OnHit()
     {
-        if (hit) return; // ya fue golpeada, no contar otra vez
+        if (wasHit) return;
+        wasHit = true;
 
-        hit = true;
+        string judgement = GetJudgement();
+        Debug.Log($"Nota acertada con {judgement}");
 
-        string result = GetJudgement();
-        Debug.Log($"Nota {name} golpeada con: {result}");
-        ScoreManager.Instance.RegisterHit(result);
+        ScoreManager.Instance.RegisterHit(judgement);
 
-        if (duration == 0f)
-        {
-            // Nota simple, destruimos inmediatamente
-            Destroy(gameObject);
-        }
-        else
-        {
-            // Nota sostenida, comenzamos el hold
-            isBeingHeld = true;
-            holdStartTime = Time.time;
-        }
+        JudgementDisplay display = FindObjectOfType<JudgementDisplay>();
+    if (display != null)
+        display.ShowJudgement(judgement);
+
+    Destroy(gameObject);
     }
 
-    public float GetHeldTime()
+    public void OnMiss()
     {
-        return holdTimer;
+        if (wasHit) return;
+        wasHit = true;
+
+        Debug.Log("Nota Miss");
+        ScoreManager.Instance.RegisterHit("Miss");
+
+        JudgementDisplay display = FindObjectOfType<JudgementDisplay>();
+        if (display != null)
+        {
+            display.ShowJudgement("Miss");
+        }
+
+        Destroy(gameObject);
     }
 }

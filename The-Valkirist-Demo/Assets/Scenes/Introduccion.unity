@@ -652,10 +652,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogos:
-  - Alguna vez has pensado
-  - Claro que no, eso no es lo tuyo
-  - "A partir de ahora contar\xE9 hasta cinco"
-  - No, no me la hincas
+  - "\xBFNunca te has preguntado qu\xE9 hay m\xE1s all\xE1?"
+  - "\xBFQu\xE9 hay despu\xE9s de la muerte?"
+  - "\xBFO acaso en medio?"
+  - "Edenis.. \xBFQu\xE9 estar\xE1 pasando all\xE1 arriba?"
+  - "Si esto sigue as\xED, todo lo que conocemos se desmoronar\xE1\u2026"
+  - ...
+  - "Erin\u2026 Despierta\u2026"
   textoUI: {fileID: 11577224}
   textoContinuarUI: {fileID: 1271960552}
   velocidadEscritura: 0.05
