@@ -9,18 +9,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-<<<<<<<< HEAD:Assets/Scripts/GameController.cs
-    
-========
-
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
->>>>>>>> 72168df012b730fc6774fc99e1ee197d41545ba6:The-Valkirist-Demo/Assets/Scripts/DontDestroyOnLoad.cs
+        inputManager = FindObjectOfType<InputManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (notesParent == null || inputManager == null)

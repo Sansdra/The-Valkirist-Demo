@@ -11,7 +11,7 @@ public class MovPersonaje : MonoBehaviour
     public float velocidMovimiento = 10.0f;
     public float velocidRotacion = 200.0f;
 
-    public bool MiraPers = CamaraSigue.lookAtPlayer;
+    //public bool MiraPers = CamaraSigue.lookAtPlayer;
     public bool corriendo;
 
 
