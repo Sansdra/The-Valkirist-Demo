@@ -68,7 +68,7 @@ public class OpcionesInicioScript : MonoBehaviour
         Debug.Log("Esperando animación de inicio...");
         yield return new WaitForSeconds(tiempoEsperaAnimacion);
         Debug.Log("Animación terminada. Cargando escena...");
-        SceneManager.LoadScene("Habitacion");
+        SceneManager.LoadScene("Introduccion");
     }
     private IEnumerator WaitAnimationThenStartOpt()
     {

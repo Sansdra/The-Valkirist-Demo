@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pasillo.unity
     guid: 9de0eceab1769364e9f5501e6ce70262
+  - enabled: 1
+    path: Assets/Scenes/Etherus.unity
+    guid: a081b69a867f2fd4ab6edf58e37a783f
+  - enabled: 1
+    path: Assets/Scenes/Introduccion.unity
+    guid: 1dac96e65bdd7954eb297abe8fef233c
   m_configObjects: {}
