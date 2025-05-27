@@ -25,6 +25,9 @@ public class PartituraInteractuable : MonoBehaviour, IInteractuable
     {
         Debug.Log("¡Interactuando con la mesa!");
         IniciarDialogo();
+        
+       
+        
     }
 
     /// <summary>
@@ -35,6 +38,7 @@ public class PartituraInteractuable : MonoBehaviour, IInteractuable
         if (sistema != null && lineasDialogo != null && lineasDialogo.Length > 0)
         {
             sistema.StartDialogue(lineasDialogo);
+
         }
         else
         {
