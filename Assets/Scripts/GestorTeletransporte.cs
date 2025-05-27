@@ -3,91 +3,77 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GestorTeletransporte : MonoBehaviour
+public class GestorTeletransporteRobusto : MonoBehaviour
 {
-    public static GestorTeletransporte Instancia;
+    public static GestorTeletransporteRobusto Instancia;
 
-    public GameObject jugador;
-    public Image fadeImage; // UI negra para el fade
+    [Header("Referencias")]
+    public GameObject jugadorRaiz; // El GameObject padre (ej: ErinRoot)
+    public Image fadeImage;
     public float duracionFade = 1f;
+
+    private string siguientePuntoEntrada = "";
 
     private void Awake()
     {
-        if (Instancia == null)
+        if (Instancia != null && Instancia != this)
         {
-            Instancia = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
-        else
+
+        Instancia = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (jugadorRaiz != null)
         {
-            Destroy(gameObject); // Evita duplicados
+            DontDestroyOnLoad(jugadorRaiz);
         }
     }
 
-    public void Teletransportar(string nombreEscena, string nombrePuntoEntrada)
+    public void Teletransportar(string nombreEscena, string puntoEntrada)
     {
-        StartCoroutine(CambiarEscena(nombreEscena, nombrePuntoEntrada));
+        siguientePuntoEntrada = puntoEntrada;
+        StartCoroutine(Transicion(nombreEscena));
     }
 
-    IEnumerator CambiarEscena(string nombreEscena, string nombrePuntoEntrada)
+    private IEnumerator Transicion(string nombreEscena)
     {
-        yield return IniciarFade(Color.clear, Color.black); // Fundido a negro
+        yield return Fade(Color.clear, Color.black);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nombreEscena);
-        while (!asyncLoad.isDone)
-            yield return null;
+        while (!asyncLoad.isDone) yield return null;
 
-        yield return new WaitForSeconds(0.1f); // Espera corta
+        yield return new WaitForSeconds(0.2f);
 
-        yield return ColocarJugador(nombrePuntoEntrada);
+        ColocarEnPuntoEntrada();
 
-        yield return IniciarFade(Color.black, Color.clear); // Fundido desde negro
+        yield return Fade(Color.black, Color.clear);
     }
 
-    IEnumerator ColocarJugador(string puntoEntrada)
+    private void ColocarEnPuntoEntrada()
     {
-        if (jugador == null)
-        {
-            Debug.LogError("❌ El jugador no está asignado en el GestorTeletransporte.");
-            yield break;
-        }
-
-        Transform punto = BuscarPuntoEntrada(puntoEntrada);
+        GameObject punto = GameObject.Find(siguientePuntoEntrada);
         if (punto == null)
         {
-            Debug.LogError("❌ Punto de entrada no encontrado: " + puntoEntrada);
-            yield break;
+            Debug.LogError("❌ Punto de entrada no encontrado: " + siguientePuntoEntrada);
+            return;
         }
 
-        CharacterController controller = jugador.GetComponent<CharacterController>();
-        if (controller != null) controller.enabled = false;
+        CharacterController cc = jugadorRaiz.GetComponentInChildren<CharacterController>();
+        if (cc != null) cc.enabled = false;
 
-        jugador.transform.position = punto.position;
-        jugador.transform.rotation = punto.rotation;
+        jugadorRaiz.transform.position = punto.transform.position;
+        jugadorRaiz.transform.rotation = punto.transform.rotation;
 
-        yield return null;
-
-        if (controller != null) controller.enabled = true;
-
-        Debug.Log("✅ Jugador colocado en punto: " + puntoEntrada);
+        if (cc != null) cc.enabled = true;
     }
 
-    Transform BuscarPuntoEntrada(string nombrePunto)
-    {
-        GameObject obj = GameObject.Find(nombrePunto);
-        if (obj == null)
-        {
-            Debug.LogError("❌ No se encontró el GameObject llamado: " + nombrePunto);
-            return null;
-        }
-        return obj.transform;
-    }
-
-    IEnumerator IniciarFade(Color desde, Color hasta)
+    private IEnumerator Fade(Color desde, Color hasta)
     {
         if (fadeImage == null)
         {
-            Debug.LogWarning("⚠️ FadeImage no asignado. Saltando fundido.");
+            Debug.LogWarning("⚠️ No hay FadeImage asignado.");
             yield break;
         }
 
