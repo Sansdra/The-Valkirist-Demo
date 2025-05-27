@@ -38,7 +38,7 @@ public class SoundSettingsUI : MonoBehaviour
         ApplyVolumes();
 
         // Reproducir un sonido de prueba
-        FindObjectOfType<AudioManager>()?.PlayTestSFX();
+        AudioManager.Instance?.PlayTestSFX();
     }
 
     void OnMasterChanged(float value)
@@ -53,6 +53,9 @@ public class SoundSettingsUI : MonoBehaviour
         float sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
         float master = PlayerPrefs.GetFloat("MasterVolume", 1f);
 
-        FindObjectOfType<AudioManager>().SetVolumes(master, music, sfx);
+        AudioManager.Instance.SetGeneralVolume(master);
+        AudioManager.Instance.SetMusicVolume(music);
+        AudioManager.Instance.SetSFXVolume(sfx);
     }
 }
+
