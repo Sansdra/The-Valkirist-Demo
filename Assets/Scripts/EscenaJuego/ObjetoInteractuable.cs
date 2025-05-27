@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
 {
@@ -12,6 +14,11 @@ public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
     public void Interactuar()
     {
         Debug.Log("Activando escena de ritmo...");
-        EscenaRitmoLoader.Instancia.ActivarEscenaRitmo(nombreEscenaRitmo);
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            Destroy(player);
+        }
+        SceneTransitionManager.Instance.GoToScene("TutorialScene");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OpcionesInicioScript : MonoBehaviour
 {
@@ -40,11 +41,11 @@ public class OpcionesInicioScript : MonoBehaviour
 
     public void ExitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        #if !UNITY_EDITOR
+            Application.Quit();
+        #else
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
     public void MostrarSettings()
