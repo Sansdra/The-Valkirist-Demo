@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545382b85a37cfb4887f21410cf4eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreEscenaMenu: Audio
+  nombreEscenaMenu: Sonido
   animadorTransicion: {fileID: 548022277}
   triggerSalida: Salir
   duracionTransicion: 1
