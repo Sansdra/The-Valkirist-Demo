@@ -122,11 +122,179 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &15785009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 15785012}
+  - component: {fileID: 15785011}
+  - component: {fileID: 15785010}
+  m_Layer: 7
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &15785010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15785009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ef34f62b10cd4fb4eaa86967e79d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 858791764}
+  lineasDialogo:
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Y el ser al que muchos conoc\xE9is como Dios vive en lo alto: Edenis"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "S\xED, Nissdray es un \xE1rbol. El cual alberga en cada una de sus ramas
+      una gran isla"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Vengo de la rama inferior del Gran \xC1rbol: Summerland"
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
+--- !u!65 &15785011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15785009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &15785012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15785009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -467, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &34764470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1543836333568703431, guid: 4649feba064f8f44f97301b9bd6c28f5, type: 3}
   m_PrefabInstance: {fileID: 735269174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &65624034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65624037}
+  - component: {fileID: 65624036}
+  - component: {fileID: 65624035}
+  m_Layer: 7
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &65624035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65624034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ef34f62b10cd4fb4eaa86967e79d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 858791764}
+  lineasDialogo:
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Yo te ayud\xE9, y a cambio me cediste tu alma, pensando que no ser\xEDa
+      la gran cosa"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFQui\xE9n usa la culminaci\xF3n de su ser como moneda? Bueno, al parecer
+      t\xFA"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Y encima con un ser al que llam\xE1is demonio\u2026"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Todas las creencias en las que vosotros los humanos os basais, todos los
+      seres a los que les rend\xEDs culto, viven en un mundo paralelo al vuestro:
+      Nissdray, un mundo donde todas vuestras creencias se relacionan entre s\xED"
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
+--- !u!65 &65624036
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65624034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &65624037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65624034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -323, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125255407
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +446,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombrePuntoEntrada: PuntoEntrada
+--- !u!1 &447201938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447201941}
+  - component: {fileID: 447201940}
+  - component: {fileID: 447201939}
+  m_Layer: 7
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &447201939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447201938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ef34f62b10cd4fb4eaa86967e79d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 858791764}
+  lineasDialogo:
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFAlguna vez has pensado qu\xE9 eres? \xBFQu\xE9 hay dentro de ti?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Las personas tienen un alma dentro, \xBFSabes? Pero no siempre son \u201Cnuevas\u201D"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: Tu, no eres un alma nueva. Has tenido muchas vidas pasadas
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
+--- !u!65 &447201940
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447201938}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &447201941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447201938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -143, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &456646753
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +682,7 @@ Transform:
   m_GameObject: {fileID: 526812193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -823.5, y: 108.65, z: -3.78}
+  m_LocalPosition: {x: -816.8, y: 108.65, z: -3.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -993,6 +1241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753503402}
   - component: {fileID: 753503401}
+  - component: {fileID: 753503403}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1077,6 +1326,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 99, y: 82.4, z: 0}
+--- !u!114 &753503403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753503400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8089e2094dc134848bb892672c64c6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luzAEncender: {fileID: 753503401}
+  sonidoAReproducir: {fileID: 0}
+  tagJugador: Player
 --- !u!1001 &858791763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1161,6 +1425,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b33649caf695a41a1177feeedba7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1060102368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060102371}
+  - component: {fileID: 1060102370}
+  - component: {fileID: 1060102369}
+  m_Layer: 7
+  m_Name: GameObject (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1060102369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060102368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ef34f62b10cd4fb4eaa86967e79d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 858791764}
+  lineasDialogo:
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "...pero tu no crees en estas cosas, \xBFNo? \xBFO es que no est\xE1s segura
+      de qu\xE9 creer?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "No hay nadie mejor que agn\xF3stico para esta tarea"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "Debemos unirnos todos para resolver el problema, o el mundo que ambos
+      conocemos ser\xE1 destruido de ra\xEDz"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: Llega al final del pasillo
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
+--- !u!65 &1060102370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060102368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1060102371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060102368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -566, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1065873781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1559,6 +1908,158 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1482619694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482619697}
+  - component: {fileID: 1482619696}
+  - component: {fileID: 1482619695}
+  m_Layer: 7
+  m_Name: GameObject (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482619695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482619694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8089e2094dc134848bb892672c64c6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luzAEncender: {fileID: 753503401}
+  sonidoAReproducir: {fileID: 0}
+  tagJugador: Player
+--- !u!65 &1482619696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482619694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1482619697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482619694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -790.6, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523515851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523515854}
+  - component: {fileID: 1523515853}
+  - component: {fileID: 1523515852}
+  m_Layer: 7
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1523515852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523515851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ef34f62b10cd4fb4eaa86967e79d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 858791764}
+  lineasDialogo:
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: Has renacido muchas veces
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFPero sabes qu\xE9 hiciste en la anterior?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: Te encontrabas en problemas, y buscaste soluciones
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: Pero la ayuda no siempre es gratis
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
+--- !u!65 &1523515853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523515851}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.081961, y: 91.49225, z: 89.24912}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1523515854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523515851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -235, y: 133.5, z: -5.1267405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1557402870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1771,6 +2272,33 @@ MonoBehaviour:
   - characterName: ????
     characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
     text: "Erin, Erin, Erin\u2026"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFSabes qui\xE9n soy?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFNunca te has sentido observada?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFPerseguida?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "\xBFInquieta?"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "No te preocupes, no te voy a hacer da\xF1o\u2026"
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: ...de momento
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: JAJAJAJAJA... Es broma
+  - characterName: ????
+    characterSprite: {fileID: 21300000, guid: 5fa53769b1ca30041ae7f56fff4e32b3, type: 3}
+    text: "O tal vez no lo sea, qui\xE9n sabe"
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: 
 --- !u!65 &1758613048
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2191,4 +2719,10 @@ SceneRoots:
   - {fileID: 1557402870}
   - {fileID: 735269174}
   - {fileID: 1758613049}
+  - {fileID: 447201941}
+  - {fileID: 1523515854}
+  - {fileID: 65624037}
+  - {fileID: 15785012}
+  - {fileID: 1060102371}
+  - {fileID: 1482619697}
   - {fileID: 526812196}
