@@ -7,19 +7,23 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
-    [Header("Test SFX")]
+    [Header("Test Sound")]
     public AudioClip testSFX;
 
-    private float masterVolume = 1f;
     private float musicVolume = 1f;
     private float sfxVolume = 1f;
 
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+            ApplyVolumes();
         }
         else
         {
@@ -27,21 +31,43 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SetVolumes(float master, float music, float sfx)
+    public void SetMusicVolume(float volume)
     {
-        masterVolume = master;
-        musicVolume = music;
-        sfxVolume = sfx;
+        musicVolume = volume;
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        ApplyVolumes();
+    }
 
-        musicSource.volume = masterVolume * musicVolume;
-        sfxSource.volume = masterVolume * sfxVolume;
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        ApplyVolumes();
+        PlayTestSFX(); // Opcional: para feedback auditivo al mover el slider
+    }
+
+    public void SetGeneralVolume(float volume)
+    {
+        musicVolume = volume;
+        sfxVolume = volume;
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        ApplyVolumes();
+        PlayTestSFX(); // Opcional: para feedback auditivo al mover el slider
+    }
+
+    private void ApplyVolumes()
+    {
+        if (musicSource != null)
+            musicSource.volume = musicVolume;
+
+        if (sfxSource != null)
+            sfxSource.volume = sfxVolume;
     }
 
     public void PlayTestSFX()
     {
-        if (testSFX != null)
-        {
+        if (sfxSource != null && testSFX != null)
             sfxSource.PlayOneShot(testSFX);
-        }
     }
 }

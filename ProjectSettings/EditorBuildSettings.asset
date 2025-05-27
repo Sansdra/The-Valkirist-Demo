@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduccion.unity
     guid: 1dac96e65bdd7954eb297abe8fef233c
   - enabled: 1
-    path: Assets/Scenes/JuegoScene.unity
+    path: Assets/Scenes/TutorialScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/PaneldeOpcioens/Audio.unity
