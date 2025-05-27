@@ -2327,8 +2327,8 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 109998409}
   waitAfterSongEnd: 3
   requiredDamagePercentage: 0.5
-  winSceneName: 
-  loseSceneName: 
+  winSceneName: FinaleScene
+  loseSceneName: DeathScene
 --- !u!4 &1525375002
 Transform:
   m_ObjectHideFlags: 0
