@@ -20,9 +20,9 @@ public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
         if (player != null)
         {
             Destroy(GameObject.Find("ErinRoot"));
+            SceneManager.LoadScene(nombreEscenaRitmo);
         }
-        SceneTransitionManager.Instance.GoToScene("TutorialScene");
-
-        //EscenaRitmoLoader.Instancia.ActivarEscenaRitmo("TutorialScene");
+        
     }
+        //EscenaRitmoLoader.Instancia.ActivarEscenaRitmo("TutorialScene");
 }
