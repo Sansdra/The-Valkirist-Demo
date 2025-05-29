@@ -212,7 +212,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3973660522114599499}
   - component: {fileID: 1940088757182872284}
-  - component: {fileID: 656658793781270731}
   m_Layer: 0
   m_Name: Camara_Sigue
   m_TagString: Untagged
@@ -343,23 +342,6 @@ MonoBehaviour:
   - {fileID: 347762427756491095}
   - {fileID: 5327463225256480513}
   - {fileID: 8316431883642806365}
---- !u!114 &656658793781270731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815961627315587761}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8be26c2f797ebc4c828e3bef2389bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayDistance: 100
-  objetoLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  textoInteraccion: {fileID: 0}
 --- !u!1 &4521818497015446388
 GameObject:
   m_ObjectHideFlags: 3
@@ -1033,10 +1015,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcfa059ddae2464e929966783ba23be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  runSpeed: 20
-  rotationSmoothTime: 1
-  cameraTransform: {fileID: 0}
+  velocidMovimiento: 10
+  velocidRotacion: 200
+  corriendo: 0
+  x: 0
+  y: 0
+  quieto: 0
 --- !u!136 &3717576646869135434
 CapsuleCollider:
   m_ObjectHideFlags: 0
