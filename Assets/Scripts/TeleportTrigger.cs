@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TeleportTrigger : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class TeleportTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GestorTeletransporteRobusto.Instancia.Teletransportar(escenaDestino, puntoEntrada);
+            SceneManager.LoadScene("Pasillo");
         }
     }
 }

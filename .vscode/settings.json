@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "The Valkirist Demo.sln"
+    "dotnet.defaultSolution": "The-Valkirist-Demo.sln",
+    "FSharp.suggestGitignore": false
 }

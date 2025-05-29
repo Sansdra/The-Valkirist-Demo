@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
 {
-    public string nombreEscenaRitmo = "EscenaRitmo";
+    public string nombreEscenaRitmo = "TutorialScene";
+
+    
 
     public string MensajeInteractuar()
     {
@@ -17,8 +19,10 @@ public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            Destroy(player);
+            SceneManager.LoadScene(nombreEscenaRitmo);
+            
         }
-        SceneTransitionManager.Instance.GoToScene("TutorialScene");
+        
     }
+        //EscenaRitmoLoader.Instancia.ActivarEscenaRitmo("TutorialScene");
 }
