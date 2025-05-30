@@ -17567,7 +17567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192ba0b4d1c744e4abe16822f79ae095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreEscenaRitmo: FinaleScene
+  nombreEscenaRitmo: FightScene
 --- !u!1 &1765558603
 GameObject:
   m_ObjectHideFlags: 0
