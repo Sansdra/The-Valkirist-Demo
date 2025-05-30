@@ -48,6 +48,7 @@ public class AutoCanvasCreator : MonoBehaviour
         tmp.fontSize = fontSize;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = fontColor;
+        
 
         // Añadir JudgementDisplay
         JudgementDisplay display = canvasGO.AddComponent<JudgementDisplay>();
