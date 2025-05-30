@@ -1199,8 +1199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6d9895ffe3b1145b4ab79b42ad9386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSettings: {fileID: 0}
-  tiempoEsperaAnimacion: 0.65
 --- !u!114 &764052699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1173, y: -30}
+  m_AnchoredPosition: {x: 1254, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1028457079
@@ -1829,8 +1827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6d9895ffe3b1145b4ab79b42ad9386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSettings: {fileID: 0}
-  tiempoEsperaAnimacion: 0.65
 --- !u!114 &1873497067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,8 +1974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6d9895ffe3b1145b4ab79b42ad9386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSettings: {fileID: 0}
-  tiempoEsperaAnimacion: 0.65
 --- !u!114 &2113189944
 MonoBehaviour:
   m_ObjectHideFlags: 0
