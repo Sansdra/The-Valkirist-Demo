@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EnemyHealthBar : MonoBehaviour
 {
     public Image healthFillImage;
-    public float maxHealth = 15450f;
+    public float maxHealth = 21450f;
 
     public float CurrentHealth { get { return currentHealth; } }
     public float MaxHealth { get { return maxHealth; } }

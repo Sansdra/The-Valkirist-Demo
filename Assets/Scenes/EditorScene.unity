@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 174368106}
-  songName: FightAltair2
+  songName: Tutorial2
   laneKeys: 61000000730000006400000066000000
   previewSpawns:
   - {fileID: 422483079}
@@ -175,7 +175,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 51e81ffe7ce5fb440a8057d2eb6a2b74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0de289ecf325558459789905037b661b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
