@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 174368106}
-  songName: FightAltair
+  songName: FightAltair2
   laneKeys: 61000000730000006400000066000000
   previewSpawns:
   - {fileID: 422483079}
