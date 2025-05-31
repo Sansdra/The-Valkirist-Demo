@@ -19,8 +19,8 @@ public class ObjetoRitmoInteractuable : MonoBehaviour, IInteractuable
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            Destroy(GameObject.Find("ErinRoot"));
             SceneManager.LoadScene(nombreEscenaRitmo);
+            
         }
         
     }

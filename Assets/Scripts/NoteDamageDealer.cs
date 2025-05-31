@@ -23,10 +23,10 @@ public class NoteDamageDealer : MonoBehaviour
         switch (judgement)
         {
             case "Perfect":
-                damage = 50f;
+                damage = 30f;
                 break;
             case "Good":
-                damage = 25f;
+                damage = 20f;
                 break;
             case "Ok":
                 damage = 10f;
