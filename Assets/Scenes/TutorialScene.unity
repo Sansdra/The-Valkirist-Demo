@@ -1300,7 +1300,7 @@ MonoBehaviour:
   fontSize: 64
   fontColor: {r: 1, g: 1, b: 1, a: 1}
   displayTime: 0.6
-  GetFont: {fileID: 12800000, guid: e350c3ed9cd7ea043996abb6dd550449, type: 3}
+  GetFont: Star
 --- !u!4 &978153244
 Transform:
   m_ObjectHideFlags: 0

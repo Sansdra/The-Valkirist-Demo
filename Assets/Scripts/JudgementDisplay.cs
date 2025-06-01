@@ -11,6 +11,8 @@ public class JuzgementDisplay : MonoBehaviour
 
     private float timer;
 
+    public Font GetFont;
+
     void Start()
     {
         if (judgementText != null)
