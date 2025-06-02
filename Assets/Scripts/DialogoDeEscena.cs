@@ -1,15 +1,17 @@
-    using UnityEngine;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogoDeEscena : MonoBehaviour
 {
     [Header("Diálogo")]
-    public DialogueSystem1Scene.DialogueLine[] lineasDialogo;
+    public DialogueSystem.DialogueLine[] lineasDialogo;
 
-    private DialogueSystem1Scene sistema;
+    private DialogueSystem sistema;
 
     void Awake()
     {
-        sistema = FindObjectOfType<DialogueSystem1Scene>();
+        sistema = FindObjectOfType<DialogueSystem>();
         if (sistema == null)
         {
             Debug.LogWarning("No se encontró DialogueSystem en la escena.");
@@ -22,8 +24,16 @@ public class DialogoDeEscena : MonoBehaviour
     }
     public void IniciarDialogo()
     {
-        
-            sistema.StartDialogueNoSystem(lineasDialogo);
-        
+
+        sistema.StartDialogue(lineasDialogo);
+
+        CargaEscenaFinal();
+
+    }
+
+    IEnumerator CargaEscenaFinal()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("EscenaGanaTexto");
     }
 }

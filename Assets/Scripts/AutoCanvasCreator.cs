@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class AutoCanvasCreator : MonoBehaviour
 {
@@ -8,12 +8,10 @@ public class AutoCanvasCreator : MonoBehaviour
     public RenderMode canvasRenderMode = RenderMode.ScreenSpaceOverlay;
 
     [Header("Judgement Text Options")]
-    public string defaultText = "";
+    public TMP_FontAsset nuevaFuente;
     public int fontSize = 64;
     public Color fontColor = Color.white;
     public float displayTime = 0.6f;
-
-    public string GetFont;
 
     private GameObject canvasGO;
 
@@ -33,7 +31,6 @@ public class AutoCanvasCreator : MonoBehaviour
 
         // Crear Texto TMP
         GameObject textGO = new GameObject("JudgementText");
-        Resources.Load<Font>(GetFont);
         textGO.transform.SetParent(canvasGO.transform);
 
         RectTransform rectTransform = textGO.AddComponent<RectTransform>();
@@ -45,20 +42,16 @@ public class AutoCanvasCreator : MonoBehaviour
         rectTransform.localScale = Vector3.one;
 
         TextMeshProUGUI tmp = textGO.AddComponent<TextMeshProUGUI>();
-        tmp.text = defaultText;
+        tmp.text = ""; // Texto inicial vacío
+        tmp.font = nuevaFuente; // ✅ Fuente asignada
         tmp.fontSize = fontSize;
-        tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = fontColor;
-        
+        tmp.alignment = TextAlignmentOptions.Center;
 
-        // Añadir JudgementDisplay
+        // Añadir JudgementDisplay y conectar texto
         JudgementDisplay display = canvasGO.AddComponent<JudgementDisplay>();
+        display.judgementText = tmp; // ✅ Asignación directa
         display.displayTime = displayTime;
-
-        // Asignar el TMP al script JudgementDisplay usando reflexión
-        typeof(JudgementDisplay)
-            .GetField("judgementText", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-            .SetValue(display, tmp);
     }
 
     void OnDestroy()

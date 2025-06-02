@@ -1,18 +1,20 @@
 using UnityEngine;
 using TMPro;
 
-public class JudgementDisplay : MonoBehaviour
+public class JuzgementDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI judgementText;
+    public TextMeshProUGUI judgementText;
 
     public float displayTime = 0.5f;
 
     private float timer;
 
+   public TMP_FontAsset nuevaFuente;
     void Start()
     {
         if (judgementText != null)
             judgementText.text = "";
+            
     }
 
     void Update()
@@ -40,18 +42,23 @@ public class JudgementDisplay : MonoBehaviour
         {
             case "Perfect":
                 judgementText.color = Color.yellow;
+                judgementText.font = nuevaFuente;
                 break;
             case "Good":
                 judgementText.color = Color.green;
+                judgementText.font = nuevaFuente;
                 break;
             case "Ok":
                 judgementText.color = Color.cyan;
+                judgementText.font = nuevaFuente;
                 break;
             case "Miss":
                 judgementText.color = Color.red;
+                judgementText.font = nuevaFuente;
                 break;
             default:
                 judgementText.color = Color.white;
+                judgementText.font = nuevaFuente;
                 break;
         }
 

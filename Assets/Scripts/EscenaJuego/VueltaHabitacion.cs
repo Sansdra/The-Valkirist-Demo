@@ -18,7 +18,7 @@ public class VueltaHabitacion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape ))
         {
-            SceneManager.LoadScene("Habitacion");
+            SceneManager.LoadScene("HabitacionDespuesDeAtril");
         }
     }
 }

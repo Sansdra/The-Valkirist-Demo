@@ -41,11 +41,7 @@ public class NoteObject : MonoBehaviour
 
         ScoreManager.Instance.RegisterHit(judgement);
 
-        JudgementDisplay display = FindObjectOfType<JudgementDisplay>();
-    if (display != null)
-        display.ShowJudgement(judgement);
-
-    Destroy(gameObject);
+        Destroy(gameObject); // No mostramos juicio aquí, lo hará InputManager
     }
 
     public void OnMiss()
@@ -56,12 +52,6 @@ public class NoteObject : MonoBehaviour
         Debug.Log("Nota Miss");
         ScoreManager.Instance.RegisterHit("Miss");
 
-        JudgementDisplay display = FindObjectOfType<JudgementDisplay>();
-        if (display != null)
-        {
-            display.ShowJudgement("Miss");
-        }
-
-        Destroy(gameObject);
+        Destroy(gameObject); // Tampoco mostramos aquí
     }
 }
