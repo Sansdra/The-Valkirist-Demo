@@ -13,7 +13,7 @@ public class AutoCanvasCreator : MonoBehaviour
     public Color fontColor = Color.white;
     public float displayTime = 0.6f;
 
-    public Font GetFont;
+    public string GetFont;
 
     private GameObject canvasGO;
 
@@ -33,6 +33,7 @@ public class AutoCanvasCreator : MonoBehaviour
 
         // Crear Texto TMP
         GameObject textGO = new GameObject("JudgementText");
+        Resources.Load<Font>(GetFont);
         textGO.transform.SetParent(canvasGO.transform);
 
         RectTransform rectTransform = textGO.AddComponent<RectTransform>();
