@@ -45,9 +45,9 @@ public class InputManager : MonoBehaviour
                     if (judgementDisplay != null)
                         judgementDisplay.ShowJudgement(judgement);
 
-                        NoteDamageDealer dealer = FindObjectOfType<NoteDamageDealer>();
-                        if (dealer != null)
-                            dealer.DealDamage(judgement);
+                    NoteDamageDealer dealer = FindObjectOfType<NoteDamageDealer>();
+                    if (dealer != null)
+                        dealer.DealDamage(judgement);
 
                     laneNotes[i].RemoveAt(0);
                 }
@@ -58,6 +58,8 @@ public class InputManager : MonoBehaviour
                 }
             }
         }
+
+       
     }
 
     public void RegisterNote(NoteObject note)

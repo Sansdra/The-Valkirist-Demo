@@ -295,51 +295,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &902822755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 902822756}
-  - component: {fileID: 902822757}
-  m_Layer: 0
-  m_Name: Activadialogo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &902822756
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902822755}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 170.82045, y: 98.93528, z: -4.0615616}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &902822757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902822755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b6af4d20268ec478ea5301931a95ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mesa: {fileID: 1368256704}
 --- !u!1 &924402141
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368256705}
-  - component: {fileID: 1368256704}
+  - component: {fileID: 1368256706}
   m_Layer: 0
   m_Name: DialogoEntrar
   m_TagString: Untagged
@@ -691,28 +646,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1368256704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368256703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e365c8dbb5590f439a90f44e805bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineasDialogo:
-  - characterName: Amber
-    characterSprite: {fileID: 0}
-    text: "ERIN! EST\xC1S BIEN? "
-  - characterName: Amber
-    characterSprite: {fileID: 0}
-    text: "CORRE... POR AQU\xCD..."
-  - characterName: Amber
-    characterSprite: {fileID: 0}
-    text: "QUE LOCURA!!!!!! HAS ESTADO INCREIBLE... No pens\xE9 que lo conseguir\xEDas..."
 --- !u!4 &1368256705
 Transform:
   m_ObjectHideFlags: 0
@@ -728,6 +661,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368256706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368256703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3be2117082a594d9968a93932d3775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineasDialogo:
+  - characterName: Amber
+    characterSprite: {fileID: 0}
+    text: "ERIN! EST\xC1S BIEN? "
+  - characterName: Amber
+    characterSprite: {fileID: 0}
+    text: "CORRE... POR AQU\xCD..."
+  - characterName: Amber
+    characterSprite: {fileID: 0}
+    text: "QUE LOCURA!!!!!! HAS ESTADO INCREIBLE... No pens\xE9 que lo conseguir\xEDas..."
 --- !u!1 &1402974184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,10 +1501,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680567529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b6af4d20268ec478ea5301931a95ef, type: 3}
+  m_Script: {fileID: 11500000, guid: a93abb342834a2f4abd4b470b50f5d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesa: {fileID: 1368256704}
+  DialogoDeEscena: {fileID: 1368256706}
 --- !u!1 &1913516163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1633,7 +1588,6 @@ SceneRoots:
   - {fileID: 1330904733}
   - {fileID: 1410768494}
   - {fileID: 1263237658}
-  - {fileID: 902822756}
   - {fileID: 1561959937}
   - {fileID: 1368256705}
   - {fileID: 1680567531}
