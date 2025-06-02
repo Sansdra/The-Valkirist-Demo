@@ -1,66 +1,96 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class JuzgementDisplay : MonoBehaviour
+public class JudgementDisplay : MonoBehaviour
 {
-    [Header("Texto de Juicio")]
-    [SerializeField] public TextMeshProUGUI judgementText;
+    [Header("Referencias")]
+    public TextMeshProUGUI judgementText;
+    public Animator animator; // Animator con animaciones "Show" y "Hide"
 
-    [Header("Duración de visualización")]
-    public float displayTime = 0.5f;
+    [Header("Colores por Tipo")]
+    public Color perfectColor = Color.yellow;
+    public Color goodColor = Color.green;
+    public Color okColor = Color.cyan;
+    public Color missColor = Color.red;
 
-    private float timer;
+    [Header("Tiempo de Display")]
+    public float displayTime = 0.6f;
 
-    public Font GetFont;
+    private Coroutine displayRoutine;
 
     void Start()
     {
-        if (judgementText != null)
-            judgementText.text = "";
-    }
-
-    void Update()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0 && judgementText != null)
-            {
-                judgementText.text = "";
-            }
-        }
-    }
-
-    public void ShowJudgement(string judgement)
-    {
         if (judgementText == null)
         {
-            Debug.LogWarning("judgementText no asignado en JudgementDisplay");
-            return;
+            Debug.LogWarning("JudgementDisplay: No se asignó TextMeshProUGUI.");
         }
+        if (animator == null)
+        {
+            Debug.LogWarning("JudgementDisplay: No se asignó Animator.");
+        }
+        judgementText.gameObject.SetActive(false);
+    }
 
-        judgementText.text = judgement;
+    /// <summary>
+    /// Mostrar el texto con color y animación según tipo.
+    /// </summary>
+    /// <param name="text">Texto visible (ej: "Perfect")</param>
+    /// <param name="type">Tipo en minúsculas para definir color/animación (ej: "perfect")</param>
+    public void ShowJudgement(string text, string type)
+    {
+        if (judgementText == null) return;
 
-        // Opcional: cambiar color según el tipo de juicio
-        switch (judgement.ToLower())
+        judgementText.text = text;
+
+        // Asignar color según tipo
+        switch (type.ToLower())
         {
             case "perfect":
-                judgementText.color = Color.yellow;
+                judgementText.color = perfectColor;
                 break;
             case "good":
-                judgementText.color = Color.green;
+                judgementText.color = goodColor;
                 break;
             case "ok":
-                judgementText.color = Color.cyan;
+                judgementText.color = okColor;
                 break;
             case "miss":
-                judgementText.color = Color.red;
+                judgementText.color = missColor;
                 break;
             default:
                 judgementText.color = Color.white;
                 break;
         }
 
-        timer = displayTime;
+        judgementText.gameObject.SetActive(true);
+
+        // Reiniciar corrutina si ya estaba corriendo
+        if (displayRoutine != null)
+            StopCoroutine(displayRoutine);
+
+        displayRoutine = StartCoroutine(DisplaySequence());
+    }
+
+    private IEnumerator DisplaySequence()
+    {
+        if (animator != null)
+        {
+            animator.Play("Show");
+        }
+
+        yield return new WaitForSeconds(displayTime);
+
+        if (animator != null)
+        {
+            animator.Play("Hide");
+        }
+
+        // Esperar que la animación de hide termine antes de ocultar el texto
+        float hideAnimDuration = 0.5f; // Ajusta según duración de la animación "Hide"
+        yield return new WaitForSeconds(hideAnimDuration);
+
+        judgementText.gameObject.SetActive(false);
     }
 }

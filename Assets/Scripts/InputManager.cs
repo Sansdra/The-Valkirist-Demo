@@ -31,7 +31,6 @@ public class InputManager : MonoBehaviour
 
                 if (note == null)
                 {
-
                     laneNotes[i].RemoveAt(0);
                     Debug.LogWarning($"Nota nula removida de lane {i}");
                     continue;
@@ -39,11 +38,11 @@ public class InputManager : MonoBehaviour
 
                 if (note.IsHittable())
                 {
-                    string judgement = note.GetJudgement();
+                    string judgement = note.GetJudgement(); // Ej: "Perfect", "Good", etc.
                     note.OnHit();
 
                     if (judgementDisplay != null)
-                        judgementDisplay.ShowJudgement(judgement);
+                        judgementDisplay.ShowJudgement(judgement, judgement.ToLower()); // Usa tipo en minúsculas como clave de color/animación
 
                     NoteDamageDealer dealer = FindObjectOfType<NoteDamageDealer>();
                     if (dealer != null)
@@ -54,26 +53,28 @@ public class InputManager : MonoBehaviour
                 else
                 {
                     Debug.Log("Presionaste fuera de zona activa, no se registra hit.");
-                    // Opcional: si quieres que toque contar como Miss, puedes llamar aquí a ScoreManager.
+                    // Aquí podrías mostrar un "Miss" si lo deseas
                 }
             }
         }
-
-       
     }
 
     public void RegisterNote(NoteObject note)
     {
+        if (note == null || note.lane < 0 || note.lane >= laneNotes.Length)
+        {
+            Debug.LogWarning($"Nota inválida o fuera de rango: {note?.lane}");
+            return;
+        }
+
         laneNotes[note.lane].Add(note);
     }
 
     public void RemoveNote(NoteObject note)
     {
-        if (note == null)
+        if (note == null || note.lane < 0 || note.lane >= laneNotes.Length)
             return;
 
-        if (laneNotes[note.lane].Contains(note))
-            laneNotes[note.lane].Remove(note);
+        laneNotes[note.lane].Remove(note);
     }
 }
-

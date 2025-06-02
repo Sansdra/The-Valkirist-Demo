@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PartituraInteractuable : MonoBehaviour, IInteractuable
 {
@@ -44,5 +46,7 @@ public class PartituraInteractuable : MonoBehaviour, IInteractuable
         {
             Debug.LogWarning("No se puede iniciar el diálogo: sistema nulo o sin líneas.");
         }
+
+        
     }
 }
