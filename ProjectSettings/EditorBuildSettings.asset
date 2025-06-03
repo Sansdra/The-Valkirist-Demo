@@ -9,29 +9,41 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio.unity
     guid: 939b01ae33487a34585cd9aff6817723
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Choice.unity
     guid: aa5767f61cb6ef24c9942486181b5465
   - enabled: 1
-    path: Assets/Scenes/VuelveoNo.unity
-    guid: c8674407150ab5544add24bae5c10db9
-  - enabled: 1
-    path: Assets/Scenes/FightScene.unity
-    guid: aab0d9dcf8eddad4fa724a8e142c0f2e
+    path: Assets/Scenes/DeathScene.unity
+    guid: 99fb02a3a48056d4594e8afd5b27f14f
   - enabled: 1
     path: Assets/Scenes/EditorScene.unity
     guid: 94c5e1043900ad54891f47486f24e982
   - enabled: 1
+    path: Assets/Scenes/EscenaGanaTexto.unity
+    guid: 20b2ea9c50a5c5047a3dea5a004a649a
+  - enabled: 1
     path: Assets/Scenes/Etherus.unity
     guid: a081b69a867f2fd4ab6edf58e37a783f
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: aab0d9dcf8eddad4fa724a8e142c0f2e
+  - enabled: 1
+    path: Assets/Scenes/FinaleScene.unity
+    guid: 81ca72a872e0fce4f8e6fc0618f40546
   - enabled: 1
     path: Assets/Scenes/Habitacion.unity
     guid: c95fe96e726c86c458f9f8653a76e914
   - enabled: 1
+    path: Assets/Scenes/HabitacionDespuesDeAtril.unity
+    guid: f90ee1c9d5a4d204882a87c7878f4c5e
+  - enabled: 1
+    path: Assets/Scenes/HabitacionSinLuz.unity
+    guid: 5572af37dd946144f9ba37b07ad9a0af
+  - enabled: 1
     path: Assets/Scenes/Introduccion.unity
     guid: 1dac96e65bdd7954eb297abe8fef233c
+  - enabled: 1
+    path: Assets/Scenes/Pasillo.unity
+    guid: 9de0eceab1769364e9f5501e6ce70262
   - enabled: 1
     path: Assets/Scenes/PaneldeOpcioens/Audio.unity
     guid: 20f880cd0844ec04382068016f8b3a08
@@ -45,36 +57,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PaneldeOpcioens/Opciones.unity
     guid: f68c8f4d906719f43a928c6b3dd2d861
   - enabled: 1
-    path: Assets/Scenes/mariano.unity
-    guid: 239abe706a88bae19a170dbe4e350a6a
-  - enabled: 1
-    path: Assets/Scenes/DeathScene.unity
-    guid: 99fb02a3a48056d4594e8afd5b27f14f
-  - enabled: 1
-    path: Assets/Scenes/FinaleScene.unity
-    guid: 81ca72a872e0fce4f8e6fc0618f40546
-  - enabled: 1
-    path: Assets/Scenes/Pasillo.unity
-    guid: 9de0eceab1769364e9f5501e6ce70262
-  - enabled: 1
     path: Assets/Scenes/PaneldeOpcioens/Sonido.unity
     guid: 6f0c1785e90bd9644b3ebfd308720697
   - enabled: 1
-    path: Assets/Scenes/FightScene.unity
-    guid: aab0d9dcf8eddad4fa724a8e142c0f2e
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/HabitacionDespuesDeAtril.unity
-    guid: f90ee1c9d5a4d204882a87c7878f4c5e
-  - enabled: 1
-    path: Assets/Scenes/HabitacionSinLuz.unity
-    guid: 5572af37dd946144f9ba37b07ad9a0af
-  - enabled: 1
-    path: Assets/Scenes/EscenaGanaTexto.unity
-    guid: 20b2ea9c50a5c5047a3dea5a004a649a
-  - enabled: 1
-    path: Assets/Scenes/DeathScene.unity
-    guid: 99fb02a3a48056d4594e8afd5b27f14f
-  - enabled: 1
-    path: Assets/Scenes/FinaleScene.unity
-    guid: 81ca72a872e0fce4f8e6fc0618f40546
+    path: Assets/Scenes/VuelveoNo.unity
+    guid: c8674407150ab5544add24bae5c10db9
   m_configObjects: {}
