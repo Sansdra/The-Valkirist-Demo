@@ -38,6 +38,16 @@ public class OpcionesInicioScript : MonoBehaviour
         StartCoroutine(WaitAnimationThenStartExit());
         
     }
+    public void Inicio()
+    {
+        StartCoroutine(WaitAnimationThenStartInicio());
+        
+    }
+    public void Etherus()
+    {
+        StartCoroutine(WaitAnimationThenStartEtherus());
+        
+    }
 
     public void ExitGame()
     {
@@ -77,6 +87,20 @@ public class OpcionesInicioScript : MonoBehaviour
         yield return new WaitForSeconds(tiempoEsperaAnimacion);
         Debug.Log("Animación terminada. Cargando escena...");
         SceneManager.LoadScene("Opciones");
+    }
+    private IEnumerator WaitAnimationThenStartInicio()
+    {
+        Debug.Log("Esperando animación de inicio...");
+        yield return new WaitForSeconds(tiempoEsperaAnimacion);
+        Debug.Log("Animación terminada. Cargando escena...");
+        SceneManager.LoadScene("Inicio");
+    }
+    private IEnumerator WaitAnimationThenStartEtherus()
+    {
+        Debug.Log("Esperando animación de inicio...");
+        yield return new WaitForSeconds(tiempoEsperaAnimacion);
+        Debug.Log("Animación terminada. Cargando escena...");
+        SceneManager.LoadScene("Etherus");
     }
     private IEnumerator WaitAnimationThenStartExit()
     {

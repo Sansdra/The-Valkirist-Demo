@@ -38,40 +38,43 @@ public class JudgementDisplay : MonoBehaviour
     /// </summary>
     /// <param name="text">Texto visible (ej: "Perfect")</param>
     /// <param name="type">Tipo en minúsculas para definir color/animación (ej: "perfect")</param>
-    public void ShowJudgement(string text, string type)
+public void ShowJudgement(string text, string type)
+{
+    if (judgementText == null) return;
+
+    judgementText.text = text;
+
+    // Asignar color según tipo
+    switch (type.ToLower())
     {
-        if (judgementText == null) return;
-
-        judgementText.text = text;
-
-        // Asignar color según tipo
-        switch (type.ToLower())
-        {
-            case "perfect":
-                judgementText.color = perfectColor;
-                break;
-            case "good":
-                judgementText.color = goodColor;
-                break;
-            case "ok":
-                judgementText.color = okColor;
-                break;
-            case "miss":
-                judgementText.color = missColor;
-                break;
-            default:
-                judgementText.color = Color.white;
-                break;
-        }
-
-        judgementText.gameObject.SetActive(true);
-
-        // Reiniciar corrutina si ya estaba corriendo
-        if (displayRoutine != null)
-            StopCoroutine(displayRoutine);
-
-        displayRoutine = StartCoroutine(DisplaySequence());
+        case "perfect":
+            judgementText.color = perfectColor;
+            break;
+        case "good":
+            judgementText.color = goodColor;
+            break;
+        case "ok":
+            judgementText.color = okColor;
+            break;
+        case "miss":
+            judgementText.color = missColor;
+            break;
+        default:
+            judgementText.color = Color.white;
+            break;
     }
+
+    // 🌀 Iniciar la onda estética
+    judgementText.GetComponent<JudgementTextWave>()?.StartWave(displayTime + 0.5f);
+
+    judgementText.gameObject.SetActive(true);
+
+    if (displayRoutine != null)
+        StopCoroutine(displayRoutine);
+
+    displayRoutine = StartCoroutine(DisplaySequence());
+}
+
 
     private IEnumerator DisplaySequence()
     {
