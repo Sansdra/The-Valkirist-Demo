@@ -4620,6 +4620,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0a8894f612c92c848abd9c30c865eb0c, type: 3}
   frameDuration: 0.5
   targetImage: {fileID: 1958729570}
+  sonidoEspecial: {fileID: 0}
+  frameConSonido: 2
+  audioSource: {fileID: 0}
 --- !u!114 &1274858855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5996,14 +5999,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1190738687}
     m_Modifications:
-    - target: {fileID: -8391222552659086748, guid: 0d8dd39c83facbd43a97827bf6f1a8b0, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -7029948723529949830, guid: 0d8dd39c83facbd43a97827bf6f1a8b0, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9eb0ebdfe44b4e54b8c1de14fa061a12, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.93
@@ -6071,6 +6066,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9eb0ebdfe44b4e54b8c1de14fa061a12, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 0d8dd39c83facbd43a97827bf6f1a8b0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 0d8dd39c83facbd43a97827bf6f1a8b0, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7795,9 +7798,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194228}
     - target: {fileID: 5204041116761904197, guid: 73961c73497f6044fac924ab3b7213c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dfda125c6d9e3f49936184a8ba3a0ca, type: 2}
+    - target: {fileID: 5204041116761904197, guid: 73961c73497f6044fac924ab3b7213c4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 56d6d76b1a5db6c48a89bfa0b7adf097, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dfda125c6d9e3f49936184a8ba3a0ca, type: 2}
     - target: {fileID: 5327463225256480513, guid: 73961c73497f6044fac924ab3b7213c4, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 36

@@ -17,8 +17,8 @@ public class DialogueSystem : MonoBehaviour
 
     private Queue<DialogueLine> dialogueQueue = new Queue<DialogueLine>();
     private Coroutine typingCoroutine;
-    private bool waitingToClose = false;
-
+    private string currentFullText = "";
+    private bool isTyping = false;
 
     [System.Serializable]
     public class DialogueLine
@@ -29,8 +29,7 @@ public class DialogueSystem : MonoBehaviour
         public string text;
     }
 
-
-    void Start()
+    void Awake()
     {
         dialoguePanel.SetActive(false);
     }
@@ -39,43 +38,48 @@ public class DialogueSystem : MonoBehaviour
     {
         if (!dialoguePanel.activeSelf) return;
 
-        if (waitingToClose && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            EndDialogue();
-            waitingToClose = false;
-        }
-        else if (!waitingToClose && Input.GetKeyDown(KeyCode.Space))
-        {
-            DisplayNextLine();
+            if (isTyping)
+            {
+                // Si está escribiendo, mostrar toda la línea de golpe
+                StopCoroutine(typingCoroutine);
+                dialogueText.text = currentFullText;
+                isTyping = false;
+            }
+            else
+            {
+                DisplayNextLine();
+            }
         }
     }
 
     public void StartDialogue(DialogueLine[] lines)
     {
-        Time.timeScale = 0f; // Pausar el juego
+        if (lines == null || lines.Length == 0)
+        {
+            Debug.LogWarning("No hay líneas de diálogo para mostrar.");
+            return;
+        }
+
+        Time.timeScale = 0f;
+        dialoguePanel.SetActive(true);
 
         dialogueQueue.Clear();
+
         foreach (DialogueLine line in lines)
         {
             dialogueQueue.Enqueue(line);
         }
 
-        dialoguePanel.SetActive(true);
-        waitingToClose = false;
         DisplayNextLine();
     }
 
     public void DisplayNextLine()
     {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-        }
-
         if (dialogueQueue.Count == 0)
         {
-            waitingToClose = true;
+            EndDialogue();
             return;
         }
 
@@ -83,44 +87,47 @@ public class DialogueSystem : MonoBehaviour
 
         nameText.text = line.characterName;
         characterImage.sprite = line.characterSprite;
+        currentFullText = line.text;
 
-        typingCoroutine = StartCoroutine(TypeSentence(line.text));
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        typingCoroutine = StartCoroutine(TypeSentence(currentFullText));
     }
 
     IEnumerator TypeSentence(string sentence)
     {
+        isTyping = true;
         dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
+
+        foreach (char c in sentence)
         {
-            dialogueText.text += letter;
-            yield return new WaitForSecondsRealtime(typingSpeed); // ⏱ respetar pausa con Time.timeScale = 0
+            dialogueText.text += c;
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
-        typingCoroutine = null;
+
+        isTyping = false;
     }
 
     void EndDialogue()
     {
-        Time.timeScale = 1f; // Reanudar el juego
-
+        Time.timeScale = 1f;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         nameText.text = "";
         characterImage.sprite = null;
     }
-    public bool IsDialogoActivo()
-{
-    return dialoguePanel.activeSelf && (dialogueQueue.Count > 0 || typingCoroutine != null || waitingToClose);
-}
 
-public void ForzarCierre()
-{
-    if (typingCoroutine != null)
+    public bool IsDialogoActivo()
     {
-        StopCoroutine(typingCoroutine);
-        typingCoroutine = null;
+        return dialoguePanel.activeSelf && (isTyping || dialogueQueue.Count > 0);
     }
 
-    EndDialogue();
-}
+    public void ForzarCierre()
+    {
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
 
+        EndDialogue();
+    }
 }
